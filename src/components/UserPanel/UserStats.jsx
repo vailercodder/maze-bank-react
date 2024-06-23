@@ -43,6 +43,7 @@ const UserStats = () => {
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Passport ID</th>
             <th>Name</th>
             <th>Cash</th>
@@ -54,7 +55,8 @@ const UserStats = () => {
         </thead>
         <tbody>
           {sortedUsers.map((user) => (
-            <tr key={user.passportId}>
+            <tr key={user.id}>
+              <td>{user.id}</td>
               <td>{user.passportId}</td>
               <td>{user.name}</td>
               <td>{user.cash}</td>
@@ -80,10 +82,8 @@ const UserStats = () => {
                 )}
               </td>
               <td>
-                <button onClick={() => deleteUser(user.passportId)}>
-                  Delete
-                </button>
-                <Link to={`/user-management/transactions/${user.passportId}`}>
+                <button onClick={() => deleteUser(user.id)}>Delete</button>
+                <Link to={`/user-management/transactions/${user.id}`}>
                   <button>Withdraw/Deposit</button>
                 </Link>
               </td>
